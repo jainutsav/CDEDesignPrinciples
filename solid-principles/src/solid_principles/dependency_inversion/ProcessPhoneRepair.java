@@ -1,11 +1,13 @@
 package solid_principles.dependency_inversion;
 
-public class Main {
-	public static void main(String[] args) {
-		SamsungNote samsungNote = new SamsungNote();
-		Redmi7 redmi7 = new Redmi7();
-		ProcessPhoneRepair processPhoneRepair = new ProcessPhoneRepair();
-		processPhoneRepair.repairSteps(samsungNote);
-		processPhoneRepair.repairSteps(redmi7);
+public class ProcessPhoneRepair {
+
+	public void repairSteps(IPhone phone) {
+		String part1 = phone.getPhonePart1();
+		System.out.println(part1 + " repaired");
+
+		double partCost = phone.getPart1Cost();
+		System.out.println("Repair cost " + partCost * 0.5);
+
 	}
 }
